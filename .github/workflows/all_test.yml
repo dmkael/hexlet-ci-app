@@ -20,7 +20,9 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: gpg --quiet --batch --yes --decrypt --passphrase="${{ secrets.SNYK_TOKEN }}" --output $HOME/my_secret my_secret.gpg
-      - run: SNYK_TOKEN=$(cat $HOME/my_secret)
+      - run: echo $HOME/my_secret
       - uses: actions/checkout@master
       - name: Run Snyk to check for vulnerabilities
         uses: snyk/actions/node@master
+        env:
+          SNYK_TOKEN: $HOME/my_secret
