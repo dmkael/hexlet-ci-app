@@ -27,7 +27,8 @@ jobs:
             echo SNYK
           } >> $GITHUB_ENV
       - run: echo $SNYK_TOKEN
-      - run: snyk auth $SNYK_TOKEN
       - uses: actions/checkout@master
       - name: Run Snyk to check for vulnerabilities
         uses: snyk/actions/node@master
+          env:
+            SNYK_TOKEN: 195cd8e0-b090-4487-afcf-0ee8397eded4
