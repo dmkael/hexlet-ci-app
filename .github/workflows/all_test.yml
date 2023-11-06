@@ -1,0 +1,13 @@
+name: all_tests
+on: push
+jobs:
+  all_tests:
+    runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v3
+        - name: setup
+          run: make setup
+        - name: test
+          run: make test
+        - name: linter
+          run: make lint
