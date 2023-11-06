@@ -18,8 +18,7 @@ jobs:
   decrypt:
     runs-on: ubuntu-latest
     steps:
-      run: gpg --quiet --batch --yes --decrypt --passphrase="${{ secrets.SNYK_TOKEN }}" \
---output $HOME/my_secret my_secret.gpg
+      - run: gpg --quiet --batch --yes --decrypt --passphrase="${{ secrets.SNYK_TOKEN }}" --output $HOME/my_secret my_secret.gpg
   security:
     needs: decrypt
     runs-on: ubuntu-latest
