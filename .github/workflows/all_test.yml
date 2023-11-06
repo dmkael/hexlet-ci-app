@@ -24,8 +24,8 @@ jobs:
     needs: decrypt
     runs-on: ubuntu-latest
     steps:
+        run: SNYK_TOKEN=$(cat $HOME/my_secret)
       - uses: actions/checkout@master
       - name: Run Snyk to check for vulnerabilities
         uses: snyk/actions/node@master
-        env:
-          SNYK_TOKEN: cat $HOME/my_secret
+
