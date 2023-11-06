@@ -22,11 +22,10 @@ jobs:
       - run: gpg --quiet --batch --yes --decrypt --passphrase="${{ secrets.SNYK_TOKEN }}" --output $HOME/my_secret my_secret.gpg
       - run: |
           {
-            echo 'SNYK_TOKEN<<EOF'
+            echo 'SNYK_TOKEN<<SNYK'
             cat $HOME/my_secret
-            echo EOF
+            echo SNYK
           } >> $GITHUB_ENV
-      - run: echo $SNYK_TOKEN
       - uses: actions/checkout@master
       - name: Run Snyk to check for vulnerabilities
         uses: snyk/actions/node@master
