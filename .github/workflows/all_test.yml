@@ -28,4 +28,4 @@ jobs:
       - name: Run Snyk to check for vulnerabilities
         uses: snyk/actions/node@master
         env:
-          SNYK_TOKEN: $HOME/my_secret
+          SNYK_TOKEN: cat $HOME/my_secret
